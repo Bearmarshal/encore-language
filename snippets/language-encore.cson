@@ -1,0 +1,112 @@
+'.source.encore':
+  'bundle':
+    'prefix': 'bundle'
+    'body': 'bundle $1 where'
+#  'case class scaffolding':
+#    'prefix': 'ccc'
+#    'body': 'class ${1:Class}(${2/(\\S+\\s*:)/val $1/g}) {\n  override def hashCode = 0 ${2/(\\S+)\\s*:[^,]+(,?)/+ $1.##/g}\n  override def equals(other: Any) = $1.unapply(this) == $1.unapply(other)\n  override def canEqual(other: Any) = other.isInstanceOf[$1]\n}\n\nobject $1 {\n  def apply(${2:arguments}): $1 = new $1(${2/(\\S+)\\s*:[^,]+/$1/g})\n  def unapply(other: Any) = other match {\n    case x: $1 => import x._ ; Some(${2/(\\S+)\\s*:[^,]+/$1/g})\n    case _     => None\n  }\n}\n'
+#  'case class':
+#    'prefix': 'case class'
+#    'body': 'case class $1${2:($3)} ${4:extends ${5:Any} }${6:{\n  $7\n\\}}$0'
+  'case':
+    'prefix': 'case'
+    'body': '${1:default} ${2: when ${3:true }}=> ${0}'
+  'class':
+    'prefix': 'class'
+    'body': 'class $1${2:<$3>} ${4:: $5 }{\n\t$0\n}'
+  'passive class':
+    'prefix': 'passive'
+    'body': 'passive class $1${2:<$3>} ${4:: $5 }{\n\t$0\n}'
+  'comment':
+    'prefix': 'com'
+    'body': '{- $1 -}'
+#  'enumeration':
+#    'prefix': 'enumeration'
+#    'body': 'object ${1:MyEnumeration} extends Enumeration {\n  type $1 = Value\n  val ${2:${3:MyEnumeration1}, ${4:MyEnumeration2}} = Value\n}\n\n${5:import $1._}\n${0}'
+#  'for - Block':
+#    'prefix': 'for'
+#    'body': 'for ($1 <- ${2:${3:0} to ${4:10}}) {\n\t$0\n}'
+#  'for - Yield':
+#    'prefix': 'for'
+#    'body': 'for {\n  $1 <- ${2:${3:0} to ${4:10}}\n} yield $0'
+  'if':
+    'prefix': 'if'
+    'body': 'if $1 then {\n\t$2\n}\n'
+  'import':
+    'prefix': 'import'
+    'body': 'import $0'
+#  'import mutable/immutable':
+#    'prefix': 'impc'
+#    'body': 'import encore.collection.{ mutable, immutable, generic }'
+  'lambda':
+    'prefix': 'lam'
+    'body': '\\ ($1) -> ${2:{${3:}\\}}'
+#  'left arrow':
+#    'prefix': '<-'
+#    'body': '${1:"${2}"} <- ${3:"${4}"}'
+  'let':
+    'prefix': 'let'
+    'body': 'let\n\t${1:_}\nin {\n\t$0\n}'
+  'main':
+    'prefix': 'main'
+    'body': 'class Main {\n\tdef main() : void {\n\t\t$1\n\t}\n}'
+  'match':
+    'prefix': 'match'
+    'body': 'match $1 with\n\t${2:default} => $0\n\n'
+  'method':
+    'prefix': 'def'
+    'body': 'def ${1:init}(${2:${4:arg} : ${5:Type}}) : ${6:void} {\n\t${0}\n}'
+#  'object with main method':
+#    'prefix': 'omain'
+#    'body': 'object $1 {\n  def main(args: Array[String]): Unit = {\n    $2\n  }\n}\n'
+#  'object':
+#    'prefix': 'object'
+#    'body': 'object $1 ${2:extends ${3:Any} }{\n\t$0\n}'
+  'print':
+    'prefix': 'print'
+    'body': 'print("$1"${2:, $3})'
+#  'right arrow':
+#    'prefix': '->'
+#    'body': '${1:"${2}"} -> ${3:"${4}"}'
+  'script header':
+    'prefix': 'script'
+    'body': '#!/bin/sh\n  exec encorec "\\$0" "\\$@"\n!#\n\n$1'
+  'set field':
+    'prefix': 'set field'
+    'body': 'this.$1 = $1'
+#  'shortcut - class':
+#    'prefix': 'c'
+#    'body': 'class'
+#  'shortcut - enumeration':
+#    'prefix': 'enum'
+#    'body': 'enumeration'
+#  'shortcut - match':
+#    'prefix': 'm'
+#    'body': 'match'
+#  'shortcut - object':
+#    'prefix': 'obj'
+#    'body': 'object'
+#  'shortcut - trait':
+#    'prefix': 't'
+#    'body': 'trait'
+#  'toString':
+#    'prefix': 'tostr'
+#    'body': 'override def toString(): String =  $0 \n'
+  'trait':
+    'prefix': 'trait'
+    'body': 'trait $1 {\n\t$0\n}'
+#  'try/catch':
+#    'prefix': 'try'
+#    'body': 'try { \n  ${1:// ...}\n} catch {\n  case e: Exception => $0\n}'
+  'type':
+    'prefix': ':'
+    'body': ': ${1:$2<$3>}'
+  'val':
+    'prefix': 'val'
+    'body': '$1 : ${2:$3<$4>}'
+  'when':
+    'prefix': 'when'
+    'body': 'when ${1:Any}'
+  'encoredoc':
+    'prefix': '{/**}'
+    'body': '/**\n * $0\n */'

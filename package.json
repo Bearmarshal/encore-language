@@ -1,0 +1,15 @@
+{
+  "name": "language-encore",
+  "main": "./lib/language-encore",
+  "version": "0.0.0",
+  "description": "Encore language support in Atom",
+  "keywords": [
+  ],
+  "repository": "https://github.com/atom/language-encore",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}

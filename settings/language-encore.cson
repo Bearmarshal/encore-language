@@ -1,0 +1,19 @@
+'.source.encore':
+  'editor':
+    'increaseIndentPattern': '(^.*(\\{[^}]*|\\([^)]*)$|^.*\\=\\s*$)'
+    'decreaseIndentPattern': '^\\s*(\\}|\\))'
+    'commentStart': '// '
+'.keyword.other.documentation.encoredoc.encore':
+  'editor':
+    'completions': [
+      'author'
+      'version'
+      'param'
+      'return'
+      'exception'
+      'see'
+      'since'
+      'serial'
+      'deprecated'
+      'link'
+    ]
